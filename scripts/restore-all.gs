@@ -5,18 +5,16 @@
 // 4. Press Run -> Run Function -> rescueAllMyFiles()
 // 5. Authenticate.
 // 6. The script should be running :) (you can track / terminate by pressing "My Executions" on the script.google.com dashboard)
+// https://stackoverflow.com/questions/14518410/restore-trashed-google-drive-files-to-a-target-folder for more
 
 function rescueAllMyFiles() {
-  // Get file iterator with all trashed files
   var trashed = DriveApp.searchFiles('trashed=true');
 
   var count = 0;
   while (trashed.hasNext()) {
     var file = trashed.next();
 
-    // Untrash the file
     if (file.isTrashed()) {
-       // Untrash the file
        file.setTrashed(false);
      }
     count++;
